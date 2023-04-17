@@ -14,41 +14,39 @@
 
     <fieldset
         style="border: 2px solid #ccc; padding: 10px; background-color: #f8f8f8; width: 700px; margin:auto; height: auto; margin-top: 50px;">
-        <h2 style="text-align: center;">All Users</h2>
+        <h2 style="text-align: center;">User: {{user.first_name}} {{user.last_name}}</h2>
         <table class="table">
             <thead>
                 <tr>
-                    <td>ID <span id="name"></span></p>
-                    <td>Full Name<span id="location"></span></p>
-                    <td>Email <span id="language"></span></p>
-                    <td>Created at <span id="comments"></span></p>
-                    
+                    <td>ID <span id="name"></span></td>
+                    <td>Full Name<span id="Full name"></span></td>
+                    <td>Email <span id="email"></span></p>
+                    <td>Created at <span id="created_at"></span></td>
+                    <td>Updated at <span id="updated_at"></span></td>
                 </tr>
             </thead>
             <tbody>
-
-                {% for person in people %}
-
-                    <tr>
-                        <td> {{person.id}}</td>
-                        <td>{{person.first_name}} {{person.last_name}}</td>
-                        <td>{{person.email}}</td>
-                        <td>{{person.created_at}}</td>
-
-                    </tr>
-
-
-
-
-
-                {% endfor %}
-
+                 <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.first_name}} {{user.last_name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.created_at}}</td>
+                        <td>{{user.updated_at}}  </td>
+                 </tr>
             </tbody>
         </table>
         <br>
-        <div class="col-12">
-            <a href="/create"><button type="submit" class="btn btn-primary">Add a New User</button></a>
+        <div class="d-flex justify-content-between mt-3">
+            <div>
+                <a href="/edit_user/{{user.id}}" class="btn btn-warning me-2"> Modify </a>
+                <a href="/delete_user/{{user.id}}" class="btn btn-danger me-2"> Delete </a> 
+            </div>
+            
+            <a href="/" class="btn btn-primary">Home</a>
         </div>
+
+        
+        
     </fieldset>
 
 
